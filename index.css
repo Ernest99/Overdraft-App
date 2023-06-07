@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
-
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url(./asset/font/SourceSansPro-Regular.ttf);
+}
+@font-face {
+    font-family: 'sourcesansproMed';
+    src: url(./asset/font/SourceSansPro-Semibold.ttf);
+}
 *,*::after,*::before{
     margin: 0;
     padding: 0;
@@ -15,9 +22,11 @@
     --grey: #7D8082;
     --lightgrey: #F3F3F3;
     --font: 'Montserrat', sans-serif;
+    --secondaryFont: 'sourcesanspro';
+    --fontSemi: 'sourcesansproMed';
 }
 .paddy{
-    padding: 2% 3%;
+    padding: 2% 9%;
 }
 nav{
     width: 100%;
@@ -38,12 +47,13 @@ header{
 
 }
 .item_box{
-    width: 300px;
+    width: 350px;
     height: 150px;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.596);
     position: relative;
     margin-top: 2rem;
     border-radius: 3px;
+    
 }
 .client_btn button{
     padding: 10px;
@@ -52,15 +62,16 @@ header{
     border-radius: 2px;
     cursor: pointer;
     transition: all .5s ease;
+    font-size: 13px;
 
 }
 .client_btn button:hover{
     background: #770215;
 }
 .caption{
-    font-size: 1.5rem;
+    font-size: 30px;
     font-family: var(--font);
-    padding: 25px 10px;
+    padding: 35px 10px;
     
 }
 .supcaption{
@@ -78,6 +89,7 @@ header{
     width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: 20px;
 }
 .overdraft_form{
    width: 50%;
@@ -85,27 +97,155 @@ header{
 .overdraft_form h3{
     font-weight: 600;
     font-size: .9rem;
-    padding-bottom: 6px;
+    padding-bottom: 3px;
 }
 .overdraft_form p{
-    font-size: .7rem;
+    font-size: 12px;
+    font-weight: 500;
     color: var(--grey);
     padding: 8px 0;
+    font-family: 'sourcesanspro';
 }
 .input_field{
     width: 100%;
     display: flex;
     margin-bottom: 20px;
+   
 }
 .input_field span{
     background: var(--red);
     color: var(--white);
     padding: 5px 6px;
     font-size: .9rem;
+    font-family: var(--secondaryFont);
 }
 .input_field input{
     width: 100%;
     padding: 0px 10px;
     background: var(--lightgrey);
     caret-color: var(--red);
+    font-family: var(--secondaryFont);
+}
+.calculate button{
+    background: var(--red);
+    color: var(--white);
+    padding: 8px 15px;
+    font-size: .9rem;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all .5s ease;
+    font-family: var(--secondaryFont);
+}
+.calculate button:hover{
+    background: #770215;
+    transition: all .5s ease;
+}
+#result{
+    align-items: end;
+}
+.displayText{
+    padding-bottom: 10px;
+}
+.hidden {
+    display: none;
+    transition: all .5s ease;
+    text-align: end;
+}
+.pop_up{
+
+    background: var(--red);
+    color: var(--white);
+    width: 100%;
+    padding: 8px 10px;
+    transition: all .5s ease;
+    font-size: 14px;
+    padding: 10px 5px;
+    transition: all .5s ease;
+}
+/* radio btn */
+.option_section{
+    margin: 5px 0 18px 0;
+}
+
+.container form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  
+  .container label {
+    display: flex;
+    cursor: pointer;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 0.375em;
+  }
+  
+  .container  label input {
+    position: absolute;
+    left: -9999px;
+  }
+  
+  .container label input:checked + span {
+    background-color: #e60026a2;
+    color: white;
+    
+  }
+  
+  .container label input:checked + span:before {
+    box-shadow: inset 0 0 0 0.4375em  var(--red);
+  }
+  
+  .container label span {
+    display: flex;
+    align-items: center;
+    padding: 0.375em 0.75em 0.375em 0.375em;
+    border-radius: 99em;
+    transition: 0.25s ease;
+    color: #e60026a2;
+    font-family: var(--secondaryFont);
+    font-size: 13px;
+  }
+  
+  .container label span:hover {
+    background-color: #d6d6e5;
+  }
+  
+  .container label span:before {
+    display: flex;
+    flex-shrink: 0;
+    content: "";
+    background-color: #fff;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    margin-right: 0.375em;
+    transition: 0.25s ease;
+    box-shadow: inset 0 0 0 0.125em  var(--red);
+  }
+  
+.info{
+    margin-top: 10px;
+    background: #F3F3F3;
+    width: 100%;
+    padding: 15px;
+    border-radius: 2px;
+    
+
+}
+.info p{
+    font-family: var(--fontSemi);
+}
+.info span{
+    font-size: 12px;
+    font-family: var(--fontSemi);
+}
+.bi-info-circle-fill{
+    color: #000;
+}
+@media (max-width: 684px){
+    .container{
+        flex-wrap: wrap;
+    }
 }
