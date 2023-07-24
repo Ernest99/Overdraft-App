@@ -7,6 +7,7 @@
     <title>Societe Generale | Employee OverDraft Eligibility Tool</title>
     <!-- bootstrap icon cdn -->
     <link rel="shortcut icon" href="./asset/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="./index.css">
 </head>
@@ -15,9 +16,6 @@
         <a href="#">
             <img src="./asset/sg_logo.png" class="logo" alt="SG LOGO">
         </a>
-        <div class="client_btn">
-            <button>Apply For Overdraft</button>
-        </div>
     </nav>
     <header class="paddy">
         <div class="item_box">
@@ -34,30 +32,42 @@
             
             <div class="overdraft_form">
                 <form id="eligibilityForm">
-                    <h3>Account Balance</h3>
-                    <p>Let us know how much you have in your account.</p>
-                    <div class="input_field">
-                        <span>GHC</span>
-                        <input type="number" id="account" required>
-                    </div>
-                        <h3>Your Income</h3>
-                        <p>Let us know how much you earn as Income.</p>
-                    <div class="input_field">
-                        <span>GHC</span>
-                        <input type="number" id="income" required>
+                    <h3>Your Net Salary (Last 3 Months).</h3>
+                    <p>Let us know your net salary for the last three months.</p>
+                    <div class="col_three">
+                        <div class="input_field">
+                            <span>GHC</span>
+                            <input type="number" id="salaryOneInput" required>
+                        </div>
+                        <div class="input_field">
+                            <span>GHC</span>
+                            <input type="number" id="salaryTwoInput" required>
+                        </div>
+                        <div class="input_field">
+                            <span>GHC</span>
+                            <input type="number" id="salaryThreeInput" required>
+                        </div>
                     </div>
                     <h3>Do you have any outstanding loan?</h3>
-                        <p>Let us know how much you earn as Income.</p>
+                        <p>Let us know if you have any outstanding loan.</p>
                         <div class="option_section">
                             <label>
-                                <input type="radio" name="radio" checked="">
+                                <input type="radio" name="outstandingLoan" value="yes" id="loanYes">
                                 <span>Yes</span>
                             </label>
                             <label>
-                                <input type="radio" name="radio">
+                                <input type="radio" name="outstandingLoan" value="no" id="loanNo"  checked>
                                 <span>No</span>
                             </label>
                             
+                        </div>
+                        <div class="hide" id="hideInput">
+                            <h3>Monthly Loan Deduction.</h3>
+                    <p>Let us know how much you pay for loan deduction every month.</p>
+                    <div class="input_field">
+                        <span>GHC</span>
+                        <input type="number" id="loanAmount" disabled>
+                    </div>
                         </div>
                     <div class="calculate">
                         <button type="submit">Calculate</button>
@@ -71,18 +81,28 @@
             </div>
             <div class="display">
                 <div id="result" class="hidden">
-                    <h2 class="displayText">Eligibility Result</h2>
-                    <label for="eligible-amount">Eligible Amount:</label>
-                    <br>
-                    <div class="input_field">
-                        <span>GHC</span>
-                        <input type="number" id="eligible-amount" disabled>
+                    <div class="displayFlex">
+                        <h3 class="displayText">Eligibility Result</h3>
+                        <div class="client_btn">
+                            <button><a href="./form.html">Apply For Overdraft</a></button>
+                        </div>
                     </div>
                     <p id="message" class="pop_up"></p>
+                    <div class="checkIcon">
+                        <img src="./asset/pngegg.png" alt="">
+                    </div>
+                    <div class="disclaimer">
+                        <p>
+                           <span>Disclaimer:</span> <br> By using this overdraft eligibility calculator, you acknowledge that the results obtained are not binding and should not be solely relied upon for making financial decisions. The bank or the calculator provider shall not be held responsible for any loss or damage resulting from the use or reliance on the calculator or its results.
+                        </p>
+                    </div>
                 </div>
+                
             </div>
         </div>
     </section>
     <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.js"></script>
+
 </body>
 </html>

@@ -1,32 +1,106 @@
-// Function to check overdraft eligibility
-function checkEligibility(event) {
-    event.preventDefault();
+
+  document.getElementById("loanYes").addEventListener("change", function() {
+    document.getElementById("loanAmount").disabled = false;
+    document.getElementById("loanAmount").required = true;
+  });
   
-    // Get user input
-    var accountBalance = parseFloat(document.getElementById('account').value);
-    var income = parseFloat(document.getElementById('income').value);
-    // const checkIcon = `<i class="ri-checkbox-circle-line"></i>`;
-    // const errorIcon = ``
-    // Check eligibility criteria
-    if (accountBalance >= 0 && income >= 1000) {
-      var eligibleAmount = Math.min(accountBalance * 0.5, income * 3);
-      showMessage('\u2705' + 'Congratulations! You are eligible for an overdraft.', eligibleAmount);
-    } else {
-      showMessage('\u274c' + 'Sorry, you are not eligible for an overdraft at this time.', 0);
-    }
+  document.getElementById("loanNo").addEventListener("change", function() {
+    document.getElementById("loanAmount").disabled = true;
+    document.getElementById("loanAmount").required = false;
+  });
+
+
+  function reset(){
+    document.getElementById("salaryOneInput").value = "";
+document.getElementById("salaryTwoInput").value = "";
+document.getElementById("salaryThreeInput").value = "";
+document.querySelector('input[name="outstandingLoan"]:checked').checked = false;
+document.getElementById("loanAmount").value = "";
   }
-  
-  // Function to display eligibility result message and eligible amount
-  function showMessage(message, amount) {
-    var resultDiv = document.getElementById('result');
-    var messageElement = document.getElementById('message');
-    var amountElement = document.getElementById('eligible-amount');
+
+  document.getElementById("eligibilityForm").addEventListener("submit", function(event) {
+    event.preventDefault();
+    
+    let month1 = parseFloat(document.getElementById("salaryOneInput").value);
+    let month2 = parseFloat(document.getElementById("salaryTwoInput").value);
+    let month3 = parseFloat(document.getElementById("salaryThreeInput").value);
+    let loanDeduction = document.querySelector('input[name="outstandingLoan"]:checked').value;
+    let loanAmount = parseFloat(document.getElementById("loanAmount").value);
+    loanDeductedSalary = 0;
+    let money = [month1, month2, month3];
+    let salary = Math.min(...money);
+    document.getElementById("loanYes").addEventListener("change", function() {
+    document.getElementById("loanAmount").required = true;
+    document.getElementById("loanAmount").disabled = false;
+    
+ 
+
+      
+    });
+    
+
+    console.log(salary);
+    if (loanDeduction == "yes") {
+     
+      loanDeductedSalary = salary - loanAmount;
+      // console.log("Amount payed: "+loanDeductedSalary);
+
+      let eligibility = loanDeductedSalary * 0.25;
+      showMessage('Eligible Overdraft Amount: ' + eligibility.toFixed(2));
+      Swal.fire({
+        icon: 'success',
+        title: 'Eligibility Calculated',
+        text: 'Eligible Overdraft Amount: ' + eligibility.toFixed(2),
+        confirmButtonText: 'Ok',
+        customClass: {
+        title: 'swal-title',
+        confirmButton: 'swal-button',
+        text: 'swal-text',
+      
+      }
+    });
+
+    // showAlert(eligibility.toFixed(2));
+    reset()
+    // month1.value = "";
+    document.getElementById("eligibilityForm").reset();
+      
+    } else {
+      let eligibility = salary * 0.25;
+      showMessage('Eligible Overdraft Amount: ' + eligibility.toFixed(2));
+      Swal.fire({
+        icon: 'success',
+        title: 'Eligibility Calculated',
+        text: 'Eligible Overdraft Amount: ' + eligibility.toFixed(2),
+        confirmButtonText: 'Ok',
+        customClass: {
+        title: 'swal-title',
+        confirmButton: 'swal-button',
+        text: 'swal-text',
+      
+      }
+      });
+    }
+   reset();
+  });
+  document.getElementById('loanYes').addEventListener('click', () => {
+    let hide = document.getElementById('hideInput');
+    hide.classList.toggle('showInput');
+    // alert('hello');
+  });
+  document.getElementById('loanNo').addEventListener('click', () => {
+    let hide = document.getElementById('hideInput');
+    hide.classList.remove('showInput');
+    // alert('hello');
+  });
+  function showMessage(message) {
+    let resultDiv = document.getElementById('result');
+    let messageElement = document.getElementById('message');
+    // let amountElement = document.getElementById('eligible-amount');
     messageElement.textContent = message;
-    amountElement.value = amount.toFixed(2);
     resultDiv.classList.remove('hidden');
   }
   
-  // Attach event listener to the form submit event
-  var form = document.getElementById('eligibilityForm');
-  form.addEventListener('submit', checkEligibility);
-  
+
+
+ 

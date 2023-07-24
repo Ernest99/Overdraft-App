@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>SG | OverDraft Form |</title>
+      <link rel="stylesheet" href="./form.css">
+      <!-- <link rel="stylesheet" href="./index.css"> -->
+      <link rel="shortcut icon" href="./asset/favicon.ico" type="image/x-icon">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   </head>
+   <body>
+      <!-- Navbar Section -->
+      <nav class="paddy">
+         <a href="./index.html">
+            <img src="./asset/sg_logo.png" class="logo" alt="SG LOGO">
+         </a>
+      </nav>
+      <!-- Navbar End -->
+         <div class="wrapper">
+            <div class="container">
+               <header>Overdraft Application Form</header>
+               <div class="progress-bar">
+                   <div class="step">
+                       <p>Profile</p>
+                       <div class="bullet">
+                           <span>1</span>
+                       </div>
+                       <div class="check fas fa-check"></div>
+                   </div>
+                   <div class="step">
+                       <p>Finance</p>
+                       <div class="bullet">
+                           <span>2</span>
+                       </div>
+                       <div class="check fas fa-check"></div>
+                   </div>
+                   <div class="step">
+                       <p>Request</p>
+                       <div class="bullet">
+                           <span>3</span>
+                       </div>
+                       <div class="check fas fa-check"></div>
+                   </div>
+                  
+                   <div class="step">
+                    <p>Preview</p>
+                    <div class="bullet">
+                        <span>4</span>
+                    </div>
+                    <div class="check fas fa-check"></div>
+                </div>
+                   <!-- <div class="step">
+                       <p>Debt</p>
+                       <div class="bullet">
+                           <span>4</span>
+                       </div>
+                       <div class="check fas fa-check"></div>
+                   </div> -->
+                   <!-- <div class="step">
+                       <p>Adress</p>
+                       <div class="bullet">
+                           <span>5</span>
+                       </div>
+                       <div class="check fas fa-check"></div>
+                   </div> -->
+                   <div class="step">
+                       <p>Submit</p>
+                       <div class="bullet">
+                           <span>5</span>
+                       </div>
+                       <div class="check fas fa-check"></div>
+                   </div>
+               </div>
+               <div class="form-outer">
+                   <form action="#" id="myForm">
+                       <div class="page slide-page">
+                           <div class="title">Personal Details:</div>
+                           <div class="inputFlex">
+                              <div class="field">
+                                 <div class="label">Customer Name</div>
+                                 <input type="text" name="name" id="name" required autocomplete="off" />
+                             </div>
+                             <div class="field">
+                                 <div class="label">Account Number</div>
+                                 <input type="number" name="accNumber" id="Account" required  autocomplete="off" maxlength="10"/>
+                             </div>
+                           </div>
+                           <div class="inputFlex">
+                              <div class="field">
+                                 <div class="label">Customer National ID</div>
+                                 <input type="text" id="nationID" name="nationalID" required autocomplete="off" />
+                             </div>
+                             <div class="field">
+                                 <div class="label">Contact Number</div>
+                                 <input type="number" id="phoneNum" name="phoneNum" required autocomplete="off" />
+                             </div>
+                           </div>
+                           <div class="field">
+                              <div class="label">Address</div>
+                              <input type="text" id="address" name="address" required autocomplete="off" />
+                          </div>
+                           <div class="field">
+                               <button class="firstNext next">Next</button>
+                           </div>
+                       </div>
+   
+                       <div class="page">
+                           <div class="title">Bank Details:</div>
+                           <div class="inputFlex">
+                            <div class="field">
+                                <div class="label">Net Salary</div>
+                                <input type="number" id="netSalary" name="salary" required autocomplete="off" />
+                            </div>
+                            <div class="field">
+                                <div class="label">Allowances(excluding salary)</div>
+                                <input type="number" id="allow" name="allow" required autocomplete="off" />
+                            </div>
+                           </div>
+                           <div class="inputFlex">
+                            <div class="field">
+                                <div class="label">Loan / Overdraft Balance <span>GHC</span></div>
+                                <input type="number" id="loan" name="loan" required autocomplete="off"/>
+                            </div>
+                            <div class="field">
+                                <div class="label">Monthly Loan Repayment <span>GHC</span></div>
+                                <input type="number" id="repay" name="repay" required autocomplete="off"/>
+                            </div>
+                           </div>
+                           <div class="field">
+                            <div class="label">Running Overdraft Facility of <span>GHC</span></div>
+                            <input type="number" required id="runOverdraft" autocomplete="off"/>
+                        </div>
+                           <div class="field btns">
+                               <button class="prev-1 prev">Previous</button>
+                               <button class="next-1 next">Next</button>
+                           </div>
+                       </div>
+                       <div class="page">
+                           <div class="title">Request Details:</div>
+                           <div class="field">
+                               <div class="label">I / We request for an overdraft facility of <span>GHC</span></div>
+                                <input type="number" id="amount" name="amount" required autocomplete="off"/>
+                           </div>
+                           <!-- <div class="field">
+                               <div class="label">Phone Number</div>
+                               <input type="Number" required />
+                           </div> -->
+                           <div class="field btns">
+                               <button class="prev-2 prev">Previous</button>
+                               <button class="next-2 next">Next</button>
+                           </div>
+                       </div>
+                       <!-- <div class="page">
+                           <div class="title">Contact Info 3:</div>
+                           <div class="field">
+                               <div class="label">Email Address</div>
+                               <input type="text" required />
+                           </div>
+                           <div class="field">
+                               <div class="label">Phone Number</div>
+                               <input type="Number" required />
+                           </div>
+                           <div class="field btns">
+                               <button class="prev-3 prev">Previous</button>
+                               <button class="next-3 next">Next</button>
+                           </div>
+                       </div> -->
+   
+                       <!-- <div class="page">
+                           <div class="title">Date of Birth:</div>
+                           <div class="field">
+                               <div class="label">Date</div>
+                               <input type="text" required />
+                           </div>
+                           <div class="field">
+                               <div class="label">Gender</div>
+                               <select required>
+                                   <option>Male</option>
+                                   <option>Female</option>
+                                   <option>Other</option>
+                               </select>
+                           </div>
+                           <div class="field btns">
+                               <button class="prev-4 prev">Previous</button>
+                               <button class="next-4 next">Next</button>
+                           </div>
+                       </div> -->
+   
+                       <div class="page">
+                           <div class="title">Terms & Conditions</div>
+
+                           <ul>
+                            <li>1. This facility shall have duration of 12 months and thereafter renewed atomically subject to the satisfactory utilization of the overdraft. The 
+                                automatic renewal shall apply where the same overdraft limit is being renewed. For an enhanced overdraft limit request, a new application 
+                                shall be made by the customer.</li>
+                                <li>2. Borrower commits to notify the bank as and when a new facility is taken from another institution.</li>
+                                <li>3. The facility can be terminated by any of the parties at any time giving the other party one month notice.</li>
+                                <li>4. The customer shall be required to provide information on all existing loans and its installment payments in order to define the overdraft 
+                                    limit – which shall not exceed 30% of the net salary.
+                                The amount agreed for the overdraft has been agreed</li>
+                                <li>5. The amount agreed for the overdraft has been agreed by both parties.</li>
+                                <li>6.The customer shall ensure the balance/position on his/her account shall be in credit at least once every month.</li>
+                                <li>7. A fee of 2% of the overdraft amount shall be charged for the subscription and renewal of this facility.</li>
+                                <li>8. The Applicable interest rate shall be the prevailing Ghana Reference Rate plus the Bank’s margin of 12% on any overdrawn balance.</li>
+                                <li>9. An additional 5% will be charged on amount exceeding the overdraft amount authorized.</li>
+                                <li>10. The facility shall be terminated by the Bank at any time if any of these conditions above are not met.</li>
+                           </ul>
+                           <div class="agree">
+                            <input type="checkbox" name="" id="agreeBtn" required><span>By submitting your details, you agree to the terms & conditions </span>
+                           </div>
+                           <!-- <div class="field">
+                               <div class="label">Username</div>
+                               <input type="text" required />
+                           </div>
+                           <div class="field">
+                               <div class="label">Password</div>
+                               <input type="password" required />
+                           </div> 
+                        
+                         
+                        
+                        -->
+                           <div class="field btns">
+                               <button class="prev-5 prev">Previous</button>
+                               <button class="next-3 next">Next</button>
+                        
+                            </div>
+                       </div>
+
+
+
+                       <div class="page">
+                        <div class="title">Preview</div>
+                        <div class="title">PERSONAL DETAILS</div>
+                        <div class="inputFlex">
+                            <div class="field">
+                               <div class="label">Customer Name</div>
+                               <p><span id="previewName"></span></p>
+                           </div>
+                           <div class="field">
+                               <div class="label">Account Number</div>
+                               <p><span id="previewAccount"></span></p>
+                           </div>
+                        </div>
+                        <div class="inputFlex">
+                            <div class="field">
+                               <div class="label">Customer National ID</div>
+                               <p><span id="previewID"></span></p>
+                           </div>
+                           <div class="field">
+                               <div class="label">Contact Number</div>
+                               <p><span id="previewContact"></span></p>
+                           </div>
+                        </div>
+                        <div class="field">
+                            <div class="label">Address</div>
+                            <p><span id="previewAddress"></span></p>
+                        </div>
+                        <div class="title">BANK DETAILS</div>
+                        <div class="inputFlex">
+                            <div class="field">
+                                <div class="label">Net Salary</div>
+                                <p><span id="previewNet"></span></p>
+                            </div>
+                            <div class="field">
+                                <div class="label">Allowances(excluding salary)</div>
+                                <p><span id="previewAllow"></span></p>
+                            </div>
+                           </div>
+                           <div class="inputFlex">
+                            <div class="field">
+                                <div class="label">Loan / Overdraft Balance <span>GHC</span></div>
+                                <p><span id="previewLoan"></span></p>
+                            </div>
+                            <div class="field">
+                                <div class="label">Monthly Loan Repayment <span>GHC</span></div>
+                                <p><span id="previewRepay"></span></p>
+                            </div>
+                           </div>
+                           <div class="field">
+                            <div class="label">Running Overdraft Facility of <span>GHC</span></div>
+                            <p><span id="previewRun"></span></p>
+                        </div>
+                        <div class="title">REQUEST DETAILS</div>
+                        <div class="field">
+                            <div class="label">I / We request for an overdraft facility of <span>GHC</span></div>
+                            <p><span id="previewAmount"></span></p>
+                        </div>
+                        <div class="field btns">
+                            <button class="prev-5 prev">Edit</button>
+                        <button class="submit">Submit</button>
+                        </div>
+                        
+                        </div>
+
+
+                   </form>
+               </div> 
+         </div>
+         
+            <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/pdfmake.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.68/vfs_fonts.js"></script>
+            <script src="./form.js"></script>
+            <script src="./email.js"></script>
+        
+        
+   </body>
+</html>
